@@ -1,4 +1,11 @@
-📘 Police Demand Forecasting (Norfolk & Suffolk)
+
+# 📘 Police Demand Forecasting (Norfolk & Suffolk)
+
+![Status](https://img.shields.io/badge/Project%20Status-Complete-brightgreen)
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-yellow)
+![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML-orange)
+![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-red)
 
 ## 🧭 Project Summary
 
