@@ -29,46 +29,46 @@ The final model produces a 6‑month forecast (Jul–Dec 2026) using engineered 
 ## 📈 Key Visuals
 
 ### Crime Type Distribution
-![Crime Type Distribution](Crime%20Type%20Distribution%201_4.png)
+![Crime Type Distribution](visuals/Crime%20Type%20Distribution%201_4.png)
 
 ### Outcome Category Distribution
-![Outcome Category Distribution](Outcome%20Category%20Distribution%201_5.png)
+![Outcome Category Distribution](visuals/Outcome%20Category%20Distribution%201_5.png)
 
 ### Crime Type × Outcome Heatmap
-![Crime Type x Outcome Heatmap](Crime%20Type%20x%20Outcome%20Heatmap%201_7.png)
+![Crime Type x Outcome Heatmap](visuals/Crime%20Type%20x%20Outcome%20Heatmap%201_7.png)
 
 ### Top 10 LSOAs
-![Top 10 LSOA](Top%2010%20LSOA%201_6.png)
+![Top 10 LSOA](visuals/Top%2010%20LSOA%201_6.png)
 
 ### Top 5 Crime Types with No Suspect Identified
-![Top 5 Crime Types](Top%205%20Crime%20Types%20with%20No%20Suspect%20Identified%201_7.png)
+![Top 5 Crime Types](visuals/Top%205%20Crime%20Types%20with%20No%20Suspect%20Identified%201_7.png)
 
 ### Monthly Crime Demand
-![Monthly Crime Demand](Monthly%20Crime%20Demand%202_1.png)
+![Monthly Crime Demand](visuals/Monthly%20Crime%20Demand%202_1.png)
 
 ### Monthly Crime Demand with Trend Line
-![Monthly Crime Demand Trend](Monthly%20Crime%20Demand%20with%20Trend%20Line%202_2.png)
+![Monthly Crime Demand Trend](visuals/Monthly%20Crime%20Demand%20with%20Trend%20Line%202_2.png)
 
 ### Seasonal Profile — Average Crime Demand by Month
-![Seasonal Profile](Seasonal%20Profile%20Average%20Crime%20Demand%20by%20Month%202_3.png)
+![Seasonal Profile](visuals/Seasonal%20Profile%20Average%20Crime%20Demand%20by%20Month%202_3.png)
 
 ### Combined Forecasted Crime Counts (Jul–Dec 2026)
-![Combined Forecast](Combined%20Forecasted%20Crime%20Counts%20(Jul_Dec26)%205_3.png)
+![Combined Forecast](visuals/Combined%20Forecasted%20Crime%20Counts%20(Jul_Dec26)%205_3.png)
 
 ### Forecasted Crime Counts (Jul–Dec 2026)
-![Forecasted Crime](Forecasted%20Crime%20Counts%20(Jul_Dec26)%205_3.png)
+![Forecasted Crime](visuals/Forecasted%20Crime%20Counts%20(Jul_Dec26)%205_3.png)
 
 ### Actual vs Predicted — Linear Regression
-![LR Actual vs Predicted](Actual%20vs%20Predicted%20(Linear%20Regression)%204_2.png)
+![LR Actual vs Predicted](visuals/Actual%20vs%20Predicted%20(Linear%20Regression)%204_2.png)
 
 ### Actual vs Predicted — Random Forest
-![RF Actual vs Predicted](Actual%20vs%20Predicted%20(Random%20Forest)%204_3.png)
+![RF Actual vs Predicted](visuals/Actual%20vs%20Predicted%20(Random%20Forest)%204_3.png)
 
 ### LR vs RF Comparison
-![LR vs RF](LR%20vs%20RF%204_4.png)
+![LR vs RF](visuals/LR%20vs%20RF%204_4.png)
 
 ### Time Analysis by Month
-![Time Analysis Month](6%20time%20analysis%20month.png)
+![Time Analysis Month](visuals/6%20time%20analysis%20month.png)
 
 
 🎯 Objectives
