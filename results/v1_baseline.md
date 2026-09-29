@@ -51,3 +51,22 @@ Mean absolute error: 305.85 (average of the six absolute errors, checked in the 
 - February has the largest error (981.1), about 53% of the total absolute error of 1,835.0. Without February the MAE of the other five months is about 171.
 - The model over-predicts in the two winter months (Jan, Feb) and under-predicts every month from March.
 - Hypothesis: the model follows recent levels and lags behind the seasonal swing instead of capturing it. To be tested in the v2 backtest.
+
+## 1.5 What I found 
+ 
+- **Worked example:** for October 2023, (10,766 + 10,587 + 10,289) / 3 = 10,547.33, which is the value of `Crime_Count_roll3`. The rolling average includes the October value that the model is trying to predict.
+- **Rebuilding the target:** 3 × roll3 − lag1 − lag2 reproduces the actual crime count exactly. The maximum absolute difference across all 33 rows was 0.0.
+- **Coefficients:** the linear model learned roll3 = +3, lag1 = −1, lag2 = −1 and 0 for everything else. That is the same formula, so the model recovered the target from the leaked feature and was not forecasting.
+- **Random Forest without roll3:** MAE 364.51 and RMSE 446.13, compared with the v1 baseline of MAE 305.85 and RMSE 437.26. The forest scored worse without `roll3`, so it was benefiting from the leaked feature.
+
+### 1.6–1.7 Automated test
+
+Wrote `src/features.py` (reproducing the v1 logic) and `tests/test_no_leakage.py`,
+which checks that changing one month's value doesn't change features for that
+month or earlier. Running it against v1 fails exactly as expected: the `roll3`
+column changes, confirming the leak mechanically rather than just by hand
+calculation. Saved the failure output to docs/evidence/leakage_test_v1_fail.txt.
+
+Step 1 is complete: the leak is proven by hand, by algebra, by the model's own
+coefficients, and now by an automated test. Step 2 will fix `make_features` and
+this same test should then pass.
