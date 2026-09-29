@@ -1,0 +1,46 @@
+﻿============================= test session starts =============================
+platform win32 -- Python 3.13.14, pytest-9.1.1, pluggy-1.6.0
+rootdir: C:\Users\simmy\OneDrive\Documents\Data Science Portfolio\Police Demand Forecasting
+plugins: anyio-4.14.2
+collected 1 item
+
+tests\test_no_leakage.py F                                               [100%]
+
+================================== FAILURES ===================================
+__________________ test_features_up_to_t_ignore_target_at_t ___________________
+
+    def test_features_up_to_t_ignore_target_at_t():
+        idx = pd.date_range("2023-07-01", periods=36, freq="MS")
+        s = pd.Series(np.random.default_rng(0).normal(10000, 500, 36), index=idx)
+    
+        for t in (5, 15, 30):
+            s2 = s.copy()
+            s2.iloc[t] += 1000  # change only month t
+    
+            feats_original = make_features(s)
+            feats_changed = make_features(s2)
+    
+>           pd.testing.assert_frame_equal(
+                feats_original.iloc[: t + 1],
+                feats_changed.iloc[: t + 1],
+            )
+
+tests\test_no_leakage.py:17: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+pandas/_libs/testing.pyx:53: in pandas._libs.testing.assert_almost_equal
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+>   ???
+E   AssertionError: DataFrame.iloc[:, 3] (column name="roll3") are different
+E   
+E   DataFrame.iloc[:, 3] (column name="roll3") values are different (16.66667 %)
+E   [index]: [2023-07-01T00:00:00.000000, 2023-08-01T00:00:00.000000, 2023-09-01T00:00:00.000000, 2023-10-01T00:00:00.000000, 2023-11-01T00:00:00.000000, 2023-12-01T00:00:00.000000]
+E   [left]:  [nan, nan, 10105.674668040896, 10102.202984050837, 10034.942232405869, 9988.470966483568]
+E   [right]: [nan, nan, 10105.674668040896, 10102.202984050837, 10034.942232405869, 10321.804299816902]
+E   At positional index 5, first diff: 9988.470966483568 != 10321.804299816902
+
+pandas/_libs/testing.pyx:171: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_no_leakage.py::test_features_up_to_t_ignore_target_at_t - A...
+============================== 1 failed in 0.41s ==============================
