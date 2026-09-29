@@ -1,0 +1,9 @@
+﻿============================= test session starts =============================
+platform win32 -- Python 3.13.14, pytest-9.1.1, pluggy-1.6.0
+rootdir: C:\Users\simmy\OneDrive\Documents\Data Science Portfolio\Police Demand Forecasting
+plugins: anyio-4.14.2
+collected 1 item
+
+tests\test_no_leakage.py .                                               [100%]
+
+============================== 1 passed in 0.35s ==============================
