@@ -10,7 +10,9 @@
 ## 🧭 Project Summary
 
 This project analyses crime demand between **July 2023 and June 2026**, exploring crime types, outcomes, geographic hotspots, seasonal patterns, and long‑term trends.
-A Random Forest model is used to generate a **6‑month forward forecast (Jul–Dec 2026)** based on engineered temporal features.
+A comparison of four forecasting approaches (seasonal-naive, Holt-Winters,
+Random Forest, and Linear Regression) is used to select the most accurate
+method, which generates a **6-month forward forecast (Jul–Dec 2026)**.
 
 
 ## 🔍 Project Overview
@@ -132,6 +134,9 @@ Crime_Count (monthly aggregated target)
 Lag features (t‑1, t‑2, t‑3)
 
 Rolling mean (3‑month)
+
+**Note:** the original rolling-mean feature contained a data leak,
+corrected in v2. See the Models section below for detail.
 
 These features capture short‑term momentum and seasonal structure.
 
