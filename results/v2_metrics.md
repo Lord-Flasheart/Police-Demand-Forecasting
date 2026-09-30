@@ -41,3 +41,19 @@ was not heavily dependent on the leaked feature, and correctly shifted its
 reliance to `Crime_Count_lag1` and `Month_num` once `roll3` no longer
 contained the answer. Whether either model beats a simple seasonal-naive
 forecast is still to be tested properly in Step 3.
+
+## Comparison against seasonal-naive baseline (section 4.7) Step 3
+
+| Model | MAE | RMSE |
+|---|---|---|
+| Seasonal-naive | 172.5 | 207.77 |
+| LR v2 (corrected) | 563.83 | 667.56 |
+| RF v2 (corrected) | 352.93 | 431.47 |
+
+The seasonal-naive baseline — predicting each month equals the same month
+last year, with no learning at all — beats both trained models by a wide
+margin. With only 27-32 months of training data, there is not enough
+history for either model to learn more than the direct seasonal
+relationship already captures. This will be tested more rigorously with a
+walk-forward backtest (section 4.8) across multiple time windows rather
+than this single six-month test period.
