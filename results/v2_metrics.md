@@ -73,3 +73,21 @@ outperforms both trained models. Given only 3 origins, per-horizon
 breakdowns are noisy and not individually reliable, but the overall
 comparison across 18 points is meaningfully more robust than one test
 split.
+
+### 4.9 Findings Step 4 Holt-Winters
+
+| Model | Overall MAE |
+|---|---|
+| Seasonal-naive | 188.1 |
+| Holt-Winters | 299.8 |
+| Random Forest (v2) | 361.5 |
+| Linear Regression (v2) | 526.9 |
+
+Holt-Winters, a proper statistical method for trend + seasonality, beats
+both trained ML models but still doesn't beat seasonal-naive. Its error
+also rises more smoothly and predictably with forecast horizon (236.6 at
+1 month, 430.9 at 6 months) than naive's, which is a point in its favour
+even though its overall MAE is higher.
+
+**Overall conclusion: with 36 months of monthly data, no method tested
+beats simply reusing last year's figure for the same month.**
