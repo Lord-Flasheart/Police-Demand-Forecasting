@@ -74,7 +74,7 @@ breakdowns are noisy and not individually reliable, but the overall
 comparison across 18 points is meaningfully more robust than one test
 split.
 
-### 4.9 Findings Step 4 Holt-Winters
+## Holt-Winters comparison (section 4.9)
 
 | Model | Overall MAE |
 |---|---|
@@ -83,11 +83,37 @@ split.
 | Random Forest (v2) | 361.5 |
 | Linear Regression (v2) | 526.9 |
 
-Holt-Winters, a proper statistical method for trend + seasonality, beats
-both trained ML models but still doesn't beat seasonal-naive. Its error
-also rises more smoothly and predictably with forecast horizon (236.6 at
-1 month, 430.9 at 6 months) than naive's, which is a point in its favour
-even though its overall MAE is higher.
+Holt-Winters, a statistical method purpose-built for trend + seasonality,
+beats both trained ML models but still doesn't beat seasonal-naive. Its
+error rises more smoothly with horizon (236.6 at 1 month ahead, 430.9 at
+6 months) than naive's, which is a point in its favour even though its
+overall MAE is higher.
 
-**Overall conclusion: with 36 months of monthly data, no method tested
-beats simply reusing last year's figure for the same month.**
+## Final forecast (section 5.4)
+
+Using seasonal-naive, refit on all available data:
+
+| Month | Forecast | Typical error (MAE) | Low | High |
+|---|---|---|---|---|
+| Jul 2026 | 10,774 | 320 | 10,454 | 11,094 |
+| Aug 2026 | 10,026 | 250 | 9,776 | 10,276 |
+| Sep 2026 | 9,593 | 122 | 9,471 | 9,715 |
+| Oct 2026 | 9,958 | 96 | 9,862 | 10,054 |
+| Nov 2026 | 9,019 | 148 | 8,871 | 9,167 |
+| Dec 2026 | 8,966 | 192 | 8,774 | 9,158 |
+
+Sense-check: July 2026's forecast (10,774) exactly matches July 2025's
+actual value, confirming the method is working correctly.
+
+December's corrected forecast (8,966) is much closer to historical
+Decembers (8,992, 8,787, 8,966) than the original leaked forecast (9,909,
+about 11% above every prior December) — concrete evidence the leak
+distorted the final forecast, not just the test metrics.
+
+## Recommendation
+
+Seasonal-naive is recommended for this dataset, based on both a single
+split and a walk-forward backtest. This is not a permanent conclusion:
+with only 36 months of data, more complex methods haven't had enough
+history to show their potential advantage, and the comparison should be
+re-run as more data accumulates.
