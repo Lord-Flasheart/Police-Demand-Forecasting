@@ -1,5 +1,6 @@
 # v2 metrics: after fixing the roll3 leak
 
+- Run date: 2026-09-30
 - Source: notebooks/Police_Demand_Forecasting_Monthly.ipynb, sections 4.5–4.6
 - Features from `src/features.py` via `model_df_v2` (see section 3.6)
 
