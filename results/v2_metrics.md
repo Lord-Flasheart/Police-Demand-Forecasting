@@ -57,3 +57,19 @@ history for either model to learn more than the direct seasonal
 relationship already captures. This will be tested more rigorously with a
 walk-forward backtest (section 4.8) across multiple time windows rather
 than this single six-month test period.
+
+## Walk-forward backtest (section 4.8)
+
+3 origins, 6-month horizon each, 18 test points total.
+
+| Model | Overall MAE |
+|---|---|
+| Seasonal-naive | 188.1 |
+| LR v2 | 526.9 |
+| RF v2 | 361.5 |
+
+Confirms the single-split finding in section 4.7: seasonal-naive
+outperforms both trained models. Given only 3 origins, per-horizon
+breakdowns are noisy and not individually reliable, but the overall
+comparison across 18 points is meaningfully more robust than one test
+split.
