@@ -1,7 +1,7 @@
 
 # 📘 Police Demand Forecasting (Norfolk & Suffolk)
 
-![Status](https://img.shields.io/badge/Project%20Status-Complete-brightgreen)
+![Status](https://img.shields.io/badge/Project%20Status-In%20Progress-yellow)
 ![Python](https://img.shields.io/badge/Python-3.10-blue)
 ![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-yellow)
 ![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML-orange)
@@ -33,7 +33,7 @@ Investigative attrition
 
 Time‑series forecasting
 
-The final model produces a 6‑month forecast (Jul–Dec 2026) using engineered temporal features and a Random Forest regressor.
+The final forecast (Jul–Dec 2026) uses the seasonal-naive method, selected after comparing four approaches via a walk-forward backtest — see the Models section below.
 
 ## 🎯 Objectives
 Understand crime demand behaviour across 36 months
@@ -49,12 +49,20 @@ Train and evaluate forecasting models
 Produce a forward‑looking demand forecast
 📂 Repository Structure
 ├── data/                     # Raw monthly CSV files
+├── docs/
+│   └── learning_log.md       # Investigation record (leak discovery and fix)
 ├── notebooks/
 │   └── Police_Demand_Forecasting_Monthly.ipynb   # Full analysis + forecasting notebook
+├── results/
+│   ├── v1_baseline.md        # Original (leaked) model results
+│   └── v2_metrics.md         # Corrected model results and comparison
+├── src/
+│   └── features.py           # Shared, tested feature-building logic
+├── tests/
+│   └── test_no_leakage.py    # Automated leak-detection test
 ├── visuals/                  # Plots and charts
-├── README.md                 # Project documentation
-└── report/
-    └── Police_Demand_Forecasting_Report.pdf
+├── CHANGELOG.md              # v1 → v2 change record
+└── README.md                 # Project documentation
 
 ## 📂 Data Sources
 
@@ -287,13 +295,27 @@ process, including my own reasoning before each correction.
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/<your-username>/police-demand-forecasting.git
-cd police-demand-forecasting
+git clone https://github.com/Lord-Flasheart/Police-Demand-Forecasting.git
+cd Police-Demand-Forecasting
 ```
+
+### 2. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Run the tests
+```bash
+python -m pytest
+```
+
+### 4. Open the notebook
+Open `notebooks/Police_Demand_Forecasting_Monthly.ipynb` in Jupyter or
+VS Code and run all cells.
 
 ## 📝 Full Notebook
 The full analysis and forecasting pipeline is available in:
-notebooks/Police_Demand_Forecasting.ipynb
+notebooks/Police_Demand_Forecasting_Monthly.ipynb
 This includes:
 
 EDA
@@ -310,7 +332,7 @@ Final summary
 
 ## 🔭 Potential enhancements:
 
-While this project is complete, several enhancements could be explored in a future iteration:
+Several enhancements could be explored in a future iteration:
 
 - Incorporate external predictors (weather, events, socio-economic indicators)
 - Forecast individual crime types separately
