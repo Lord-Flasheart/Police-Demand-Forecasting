@@ -48,6 +48,7 @@ Train and evaluate forecasting models
 
 Produce a forward‑looking demand forecast
 📂 Repository Structure
+```
 ├── data/                     # Raw monthly CSV files
 ├── docs/
 │   └── learning_log.md       # Investigation record (leak discovery and fix)
@@ -63,7 +64,7 @@ Produce a forward‑looking demand forecast
 ├── visuals/                  # Plots and charts
 ├── CHANGELOG.md              # v1 → v2 change record
 └── README.md                 # Project documentation
-
+```
 ## 📂 Data Sources
 
 The analysis uses recorded crime data for Norfolk and Suffolk between **July 2023 and June 2026**.
