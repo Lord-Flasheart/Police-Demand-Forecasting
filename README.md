@@ -161,6 +161,21 @@ Four approaches were tested and compared via a walk-forward backtest
 | Random Forest | 361.5 |
 | Linear Regression | 526.9 |
 
+### v1 vs v2: Linear Regression and Random Forest, in detail
+
+| Model | Version | MAE | RMSE | R² |
+|---|---|---|---|---|
+| Linear Regression | v1 (leaked) | ~0 | ~0 | 1.0 |
+| Linear Regression | v2 (corrected) | 563.8 | 667.6 | 0.16 |
+| Random Forest | v1 (leaked) | 305.9 | 437.3 | 0.641 |
+| Random Forest | v2 (corrected) | 352.9 | 431.5 | 0.650 |
+
+The leak collapsed Linear Regression's score from meaningless (a perfect
+fit achieved by reconstructing the answer) to weak but genuine. Random
+Forest was largely unaffected — slightly worse on MAE, slightly better
+on RMSE and R² — suggesting it was not heavily dependent on the leaked
+feature.
+
 **Seasonal-naive — predicting each month as equal to the same month one
 year earlier — was the most accurate approach**, beating both a purpose-
 built statistical method (Holt-Winters) and two machine learning models.
