@@ -311,7 +311,7 @@ process, including my own reasoning before each correction.
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/Lord-Flasheart/Police-Demand-Forecasting.git
+git clone https://github.com/simon-gillies/Police-Demand-Forecasting.git
 cd Police-Demand-Forecasting
 ```
 
