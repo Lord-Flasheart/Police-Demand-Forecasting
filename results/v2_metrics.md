@@ -60,7 +60,7 @@ than this single six-month test period.
 
 ## Walk-forward backtest (section 4.8)
 
-3 origins, 6-month horizon each, 18 test points total.
+4 origins, 6-month horizon each, 24 test points total.
 
 | Model | Overall MAE |
 |---|---|
@@ -69,9 +69,9 @@ than this single six-month test period.
 | RF v2 | 361.5 |
 
 Confirms the single-split finding in section 4.7: seasonal-naive
-outperforms both trained models. Given only 3 origins, per-horizon
+outperforms both trained models. Given only 4 origins, per-horizon
 breakdowns are noisy and not individually reliable, but the overall
-comparison across 18 points is meaningfully more robust than one test
+comparison across 24 points is meaningfully more robust than one test
 split.
 
 ## Holt-Winters comparison (section 4.9)

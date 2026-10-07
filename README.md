@@ -189,8 +189,11 @@ and an automated test — see `docs/learning_log.md`), then fixed. See
 `CHANGELOG.md` for the full before/after comparison.
 
 With the leak fixed, Random Forest's honest MAE was 352.9 (compared to
-305.9 with the leak in place), and it beat naive on RMSE and R² but not
-on MAE. Given the small dataset, this project takes the more accurate
+305.9 with the leak in place). Its RMSE and R² also improved slightly
+against its own v1 (leaked) version, but it did not outperform
+seasonal-naive on any metric — naive's MAE (172.5 on the single split,
+188.1 on the backtest) and RMSE (207.77 on the single split) were both
+lower. Given the small dataset, this project takes the more accurate
 and simpler seasonal-naive approach as the recommended method, while
 noting this should be re-evaluated as more data accumulates.
 
